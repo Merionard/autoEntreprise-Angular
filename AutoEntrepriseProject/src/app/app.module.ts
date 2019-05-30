@@ -5,6 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CreationEntrepreneurComponent } from './component/creation-entrepreneur/creation-entrepreneur.component';
 import { FormsModule }   from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { EntrepreneurService } from './service/entrepreneur.service';
 
 @NgModule({
   declarations: [
@@ -14,9 +16,12 @@ import { FormsModule }   from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    EntrepreneurService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
