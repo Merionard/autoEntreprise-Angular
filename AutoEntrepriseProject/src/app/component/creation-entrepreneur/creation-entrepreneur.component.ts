@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Entrepreneur } from 'src/model/Entrepreneur';
 import { NgForm } from '@angular/forms';
 import { EntrepreneurService } from 'src/app/service/entrepreneur.service';
+import { Subject } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-creation-entrepreneur',
@@ -12,7 +14,7 @@ export class CreationEntrepreneurComponent implements OnInit {
 
   private entrepreneur : Entrepreneur;
 
-  constructor(private entrepreneurService:EntrepreneurService) { }
+  constructor(private entrepreneurService:EntrepreneurService, private router:Router) { }
 
   ngOnInit() {
   }
@@ -24,7 +26,7 @@ export class CreationEntrepreneurComponent implements OnInit {
     this.entrepreneur.setLogin(form.value['login']);
     this.entrepreneur.setPassword(form.value['password']);
     this.entrepreneurService.saveEntrepreneurToServer(this.entrepreneur);
-    
+    this.router.navigate(['home']);
   }
 
 }

@@ -1,10 +1,13 @@
 import { Civilite } from './Civilite';
+import { Entreprise } from './Entreprise';
 
 export class Entrepreneur{
   
         private login: string;
         private password: string;
         private civilite = new Civilite();
+        private entreprises= new Set<Entreprise>();
+
 
         constructor(){}
 
@@ -34,6 +37,14 @@ export class Entrepreneur{
 
     public setCivilite(civilite: Civilite): void {
         this.civilite = civilite;
+    }
+
+    public getEntreprises(): Set<Entreprise> {
+        return this.entreprises;
+    }
+
+    public setEntreprises(entreprises: Set<Entreprise>): void {
+        this.entreprises = entreprises;
     }
 
 
