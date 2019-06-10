@@ -12,6 +12,7 @@ export class AfficherEntrepreneurComponent implements OnInit {
 
   private entrepreneur : Entrepreneur;
   private entrepreneurSubscritpion : Subscription;
+  private afficherFormulaireCreationEntreprise : boolean = false;
   constructor(private entrepreneurService:EntrepreneurService) { }
 
   ngOnInit() {
@@ -24,7 +25,12 @@ export class AfficherEntrepreneurComponent implements OnInit {
   }
 
    isAucuneEntreprise(){
-    return this.entrepreneur.getEntreprises().size==0;
+    console.log(this.entrepreneur.getId());
+    return (this.entrepreneur.getEntreprises()==null||this.entrepreneur.getEntreprises().size==0);  
+  }
+
+  OncliCkCreationEntreprise(){
+    this.afficherFormulaireCreationEntreprise=true;
   }
 
 

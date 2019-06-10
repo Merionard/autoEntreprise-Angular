@@ -14,6 +14,7 @@ import { EntrepreneurService } from './service/entrepreneur.service';
 const appRoutes: Routes = [
   { path: 'creationEntrepreneur', component: CreationEntrepreneurComponent },
   { path: 'home', component: AfficherEntrepreneurComponent },
+  { path: 'declarerEntreprise/:entrepreneurId', component: DelarationEntrepriseComponent }
 /*   { path: '', component: AppareilViewComponent },
   { path: 'not-found', component: FourOhFourComponent },
   { path: 'edit', canActivate: [AuthGuard], component: EditAppareilComponent },

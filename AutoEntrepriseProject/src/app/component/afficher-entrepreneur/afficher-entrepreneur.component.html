@@ -1,6 +1,15 @@
-<div class="row">
-  <div class="col-sm-12 col-sm-offset-2">
-    <p>Bienvenue {{entrepreneur.civilite.nom}}</p>
-    <button type="button" class="btn btn-primary" *ngIf="isAucuneEntreprise()">Déclarer son entreprise</button>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 col-md-offset-2">
+      <div class="row">
+        <div class="col-md-6 col-md-offset-6">
+          <p>Bienvenue {{entrepreneur.civilite.nom}}</p>
+          <button type="button" class="btn btn-primary" *ngIf="isAucuneEntreprise()" (click)="OncliCkCreationEntreprise()">Déclarer son entreprise</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="afficherFormulaireCreationEntreprise">
+    <app-delaration-entreprise [idEntrepreneur]></app-delaration-entreprise>
   </div>
 </div>

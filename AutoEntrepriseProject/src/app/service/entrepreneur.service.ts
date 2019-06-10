@@ -17,17 +17,18 @@ export class EntrepreneurService {
   }
 
   saveEntrepreneurToServer(entrepreneur:Entrepreneur) {
-    this.entrepreneur=entrepreneur;
     this.httpClient
       .post('http://localhost:8080/AutoEntreprise/entrepreneur/', entrepreneur)
       .subscribe(
-        () => {
+        (data:any) => {
           console.log('Enregistrement terminé !');
+          this.entrepreneur=Entrepreneur.fromJson(data);
+          this.emitEntrepreneurSubject();
         },
         (error) => {
           console.log('Erreur ! : ' + error);
         }
       );
-      this.emitEntrepreneurSubject();
+      
 }
 }

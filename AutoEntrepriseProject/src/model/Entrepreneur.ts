@@ -1,33 +1,43 @@
 import { Civilite } from './Civilite';
 import { Entreprise } from './Entreprise';
 
-export class Entrepreneur{
-  
-        private login: string;
-        private password: string;
-        private civilite = new Civilite();
-        private entreprises= new Set<Entreprise>();
+export class Entrepreneur {
+
+    public static fromJson(json: Object) {
+        return new Entrepreneur(json['id'],
+            json['login'],
+            json['password'],
+            json['civilite'],
+            json['entreprise']
+        );
+    }
+
+    constructor(private id: number,
+        private login: string,
+        private password: string,
+        private civilite: Civilite,
+        private entreprises: Set<Entreprise>) { }
 
 
-        constructor(){}
+    public getId(): number {
+        return this.id;
+    }
 
-    public getLogin(): string
- {
+    public getLogin(): string {
         return this.login;
     }
 
     public setLogin(login: string
-): void {
+    ): void {
         this.login = login;
     }
 
-    public getPassword(): string
- {
+    public getPassword(): string {
         return this.password;
     }
 
     public setPassword(password: string
-): void {
+    ): void {
         this.password = password;
     }
 

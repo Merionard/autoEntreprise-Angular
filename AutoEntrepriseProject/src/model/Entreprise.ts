@@ -2,12 +2,21 @@ import { ChiffreAffaire } from './ChiffreAffaire';
 
 export class Entreprise{
     private dateDebut: Date;
-    private dateFin: Date;
     private isLiberal : boolean;
     private isCommercial : boolean;
     private isBeneficiaireArce: boolean;
     private typeActivite: String;
     private chiffresAffaire:Set<ChiffreAffaire>;
+    private siret:String;
+
+    public getSiret(): String {
+        return this.siret;
+    }
+
+    public setSiret(siret: String): void {
+        this.siret = siret;
+    }
+
 
     public getDateDebut(): Date
  {
@@ -17,16 +26,6 @@ export class Entreprise{
     public setDateDebut(dateDebut: Date
 ): void {
         this.dateDebut = dateDebut;
-    }
-
-    public getDateFin(): Date
- {
-        return this.dateFin;
-    }
-
-    public setDateFin(dateFin: Date
-): void {
-        this.dateFin = dateFin;
     }
 
     public isIsLiberal(): boolean {
