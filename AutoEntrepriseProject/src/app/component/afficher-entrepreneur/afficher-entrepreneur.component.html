@@ -10,6 +10,6 @@
     </div>
   </div>
   <div *ngIf="afficherFormulaireCreationEntreprise">
-    <app-delaration-entreprise [idEntrepreneur]></app-delaration-entreprise>
+    <app-delaration-entreprise [idEntrepreneur]="entrepreneur.getId()"></app-delaration-entreprise>
   </div>
 </div>

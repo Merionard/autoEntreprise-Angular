@@ -14,12 +14,12 @@
             <label for="typeActivite">
               Type d'activité
             </label>
-            <select class="form-control" id="typeActivite" name="typeActivite">
+            <select class="form-control" id="typeActivite" name="typeActivite" ngModel required>
                 <option value="LIBERAL">libérale</option> 
                 <option value="COMMERCIAL" selected>Commerciale</option>
               </select>
               <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="true" id="siArce" name="siArce">
+                  <input class="form-check-input" type="checkbox" value="true" id="siArce" name="siArce" ngModel>
                   <label class="form-check-label" for="siArce">
                     Cochez si vous êtes bénéficiaire de l'ARCE
                   </label>

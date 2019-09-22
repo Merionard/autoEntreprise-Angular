@@ -1,13 +1,31 @@
 import { ChiffreAffaire } from './ChiffreAffaire';
 
 export class Entreprise{
-    private dateDebut: Date;
-    private isLiberal : boolean;
-    private isCommercial : boolean;
-    private isBeneficiaireArce: boolean;
-    private typeActivite: String;
-    private chiffresAffaire:Set<ChiffreAffaire>;
-    private siret:String;
+
+
+    public static fromJson(json: Object) {
+        return new Entreprise(json['chiffresAffaire'],
+            json['dateDebut'],
+            json['dateFin'],
+            json['typeActivite'],
+            json['id'],
+            json['beneficaireArce'],
+            json['siret'],
+            json['liberal'],
+            json['commercial']
+        );
+    }
+
+    constructor(private chiffresAffaire:Set<ChiffreAffaire>,
+        private dateDebut: Date,
+        private dateFin: Date,
+        private typeActivite: String,
+        private id : number,
+        private isBeneficiaireArce: boolean,
+        private siret:String,
+        private isLiberal : boolean,
+        private isCommercial : boolean
+         ){}
 
     public getSiret(): String {
         return this.siret;
