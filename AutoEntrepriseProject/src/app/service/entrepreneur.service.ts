@@ -31,4 +31,33 @@ export class EntrepreneurService {
       );
       
 }
+getEntrepreneurByLogin(login:String){
+  this.httpClient
+    .get('http://localhost:8080/AutoEntreprise/entrepreneur/'+login)
+    .subscribe(
+      (data:any)=>{
+        this.entrepreneur=Entrepreneur.fromJson(data);
+        this.emitEntrepreneurSubject();
+      },
+      (error)=>{
+        console.log('Erreur :  '+error);
+      }
+    );      
+}
+
+getEntrepreneurById(id:number){
+  this.httpClient
+    .get('http://localhost:8080/AutoEntreprise/entrepreneurById/'+id)
+    .subscribe(
+      (data:any)=>{
+        this.entrepreneur=Entrepreneur.fromJson(data);
+        this.emitEntrepreneurSubject();
+        console.log('http://localhost:8080/AutoEntreprise/entrepreneurById/'+id);
+      },
+      (error)=>{
+        console.log('Erreur :  '+error);
+      }
+    );      
+}
+
 }

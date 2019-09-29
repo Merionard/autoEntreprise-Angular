@@ -25,12 +25,15 @@ export class AfficherEntrepreneurComponent implements OnInit {
   }
 
    isAucuneEntreprise(){
-    console.log(this.entrepreneur.getId());
     return (this.entrepreneur.getEntreprises()==null||this.entrepreneur.getEntreprises().size==0);  
   }
 
   OncliCkCreationEntreprise(){
     this.afficherFormulaireCreationEntreprise=true;
+  }
+
+  offAfficherFormulaireCreationEntreprise(){
+    this.afficherFormulaireCreationEntreprise=false;
   }
 
 

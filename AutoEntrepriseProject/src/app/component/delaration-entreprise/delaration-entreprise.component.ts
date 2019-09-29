@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Entreprise } from 'src/model/Entreprise';
 import { EntrepriseService } from 'src/app/service/entreprise.service';
+import { AfficherEntrepreneurComponent } from '../afficher-entrepreneur/afficher-entrepreneur.component';
 
 @Component({
   selector: 'app-delaration-entreprise',
@@ -13,7 +14,7 @@ export class DelarationEntrepriseComponent implements OnInit {
   private entreprise:Entreprise;
  @Input() private idEntrepreneur: number;
 
-  constructor(private entrepriseService:EntrepriseService) { }
+  constructor(private entrepriseService:EntrepriseService,private afficherEntrepreneur:AfficherEntrepreneurComponent) { }
 
   ngOnInit() {
   }
@@ -25,7 +26,8 @@ export class DelarationEntrepriseComponent implements OnInit {
     this.entreprise.setTypeActivite(form.value['typeActivite']);
     this.entreprise.setIsBeneficiaireArce(form.value['siArce']);
     this.entrepriseService.saveEntrepriseToserver(this.entreprise,this.idEntrepreneur);
-    console.log(this.entreprise.getIsBeneficiaireArce());
+    this.afficherEntrepreneur.offAfficherFormulaireCreationEntreprise();
+
   }
 
 }

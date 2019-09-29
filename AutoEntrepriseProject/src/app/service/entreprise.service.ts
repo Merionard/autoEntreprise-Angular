@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Entreprise } from 'src/model/Entreprise';
 import { Entrepreneur } from 'src/model/Entrepreneur';
 import { Subject } from 'rxjs';
+import { EntrepreneurService } from './entrepreneur.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ export class EntrepriseService {
   private entreprise:Entreprise;
   entrepriseSubject = new Subject<Entreprise>();
 
-  constructor(private httpClient : HttpClient) { }
+  constructor(private httpClient : HttpClient, private entrepreneurService: EntrepreneurService) { }
 
   emitEntrepriseSubject(){
     this.entrepriseSubject.next(this.entreprise);
@@ -31,8 +32,8 @@ export class EntrepriseService {
           console.log('Erreur ! : ' + error);
         }
       );
-      console.log('http://localhost:8080/AutoEntreprise/entreprise/'+idEntrepreneur);
-      console.log(entreprise.getIsBeneficiaireArce());
+      this.entrepreneurService.getEntrepreneurById(idEntrepreneur);
+        
       
   }
 }

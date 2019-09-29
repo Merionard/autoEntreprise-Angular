@@ -11,5 +11,9 @@
   </div>
   <div *ngIf="afficherFormulaireCreationEntreprise">
     <app-delaration-entreprise [idEntrepreneur]="entrepreneur.getId()"></app-delaration-entreprise>
+    
+  </div>
+  <div *ngIf="!isAucuneEntreprise()">
+    <app-afficher-entreprise ></app-afficher-entreprise>
   </div>
 </div>
