@@ -10,6 +10,7 @@ import { CreationEntrepreneurComponent } from './component/creation-entrepreneur
 import { DelarationEntrepriseComponent } from './component/delaration-entreprise/delaration-entreprise.component';
 import { EntrepreneurService } from './service/entrepreneur.service';
 import { AfficherEntrepriseComponent } from './component/afficher-entreprise/afficher-entreprise.component';
+import { ChiffreAffaireComponent } from './component/chiffre-affaire/chiffre-affaire.component';
 
 
 const appRoutes: Routes = [
@@ -30,7 +31,8 @@ const appRoutes: Routes = [
     CreationEntrepreneurComponent,
     DelarationEntrepriseComponent,
     AfficherEntrepreneurComponent,
-    AfficherEntrepriseComponent
+    AfficherEntrepriseComponent,
+    ChiffreAffaireComponent
   ],
   imports: [
     BrowserModule,

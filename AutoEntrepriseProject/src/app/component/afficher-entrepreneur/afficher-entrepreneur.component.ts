@@ -13,6 +13,7 @@ export class AfficherEntrepreneurComponent implements OnInit {
   private entrepreneur : Entrepreneur;
   private entrepreneurSubscritpion : Subscription;
   private afficherFormulaireCreationEntreprise : boolean = false;
+  private afficherFormulaireDeclarationCa : boolean = false;
   constructor(private entrepreneurService:EntrepreneurService) { }
 
   ngOnInit() {
@@ -25,11 +26,19 @@ export class AfficherEntrepreneurComponent implements OnInit {
   }
 
    isAucuneEntreprise(){
-    return (this.entrepreneur.getEntreprises()==null||this.entrepreneur.getEntreprises().size==0);  
+    return this.entrepreneur.getEntreprise()==null;  
+  }
+
+  isEcheanceNonDeclare(){
+    return true;
   }
 
   OncliCkCreationEntreprise(){
     this.afficherFormulaireCreationEntreprise=true;
+  }
+
+  onClickDeclarationCa(){
+    this.afficherFormulaireDeclarationCa=true;
   }
 
   offAfficherFormulaireCreationEntreprise(){

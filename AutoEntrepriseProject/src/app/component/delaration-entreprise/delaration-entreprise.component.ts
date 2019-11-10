@@ -20,7 +20,7 @@ export class DelarationEntrepriseComponent implements OnInit {
   }
 
   onSubmit(form: NgForm){
-    this.entreprise=new Entreprise(null,null,null,null,null,null,null,null,null);
+    this.entreprise=new Entreprise(null,null,null,null,null,null,null);
     this.entreprise.setDateDebut(form.value['dateDebut']);
     this.entreprise.setSiret(form.value['siret']);
     this.entreprise.setTypeActivite(form.value['typeActivite']);

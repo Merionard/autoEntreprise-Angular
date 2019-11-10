@@ -2,6 +2,12 @@ import { Civilite } from './Civilite';
 import { Entreprise } from './Entreprise';
 
 export class Entrepreneur {
+/*     id:number;
+    login:string;
+    password:string;
+    civilite:Civilite;
+    entreprises:Set<Entreprise>; */
+
 
     public static fromJson(json: Object) {
         return new Entrepreneur(json['id'],
@@ -16,7 +22,9 @@ export class Entrepreneur {
         private login: string,
         private password: string,
         private civilite: Civilite,
-        private entreprises: Set<Entreprise>) { }
+        private entreprise: Entreprise) { }
+
+        /* constructor(){} */
 
 
     public getId(): number {
@@ -49,13 +57,15 @@ export class Entrepreneur {
         this.civilite = civilite;
     }
 
-    public getEntreprises(): Set<Entreprise> {
-        return this.entreprises;
+    public getEntreprise(): Entreprise {
+        return this.entreprise;
     }
 
-    public setEntreprises(entreprises: Set<Entreprise>): void {
-        this.entreprises = entreprises;
+    public setEntreprises(entreprise: Entreprise): void {
+        this.entreprise = entreprise;
     }
+
+
 
 
 

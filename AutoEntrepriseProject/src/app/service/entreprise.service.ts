@@ -4,6 +4,7 @@ import { Entreprise } from 'src/model/Entreprise';
 import { Entrepreneur } from 'src/model/Entrepreneur';
 import { Subject } from 'rxjs';
 import { EntrepreneurService } from './entrepreneur.service';
+import { ChiffreAffaire } from 'src/model/ChiffreAffaire';
 
 @Injectable({
   providedIn: 'root'
@@ -36,4 +37,11 @@ export class EntrepriseService {
         
       
   }
+
+
+  saveChiffreAffaire(idEntreprise:number,chiffreAffaire:ChiffreAffaire){
+    this.httpClient
+      .post('http://localhost:8080/AutoEntreprise/entreprise/'+idEntreprise,chiffreAffaire);
+  }
+
 }

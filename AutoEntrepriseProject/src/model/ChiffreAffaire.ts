@@ -1,6 +1,7 @@
 export class ChiffreAffaire{
     private annee:number;
-    private chiffreAffaire:number;
+    private montant:number;
+    private mois: number;
 
     public getAnnee(): number
  {
@@ -12,12 +13,24 @@ export class ChiffreAffaire{
         this.annee = annee;
     }
 
-    public getChiffreAffaire(): number {
-        return this.chiffreAffaire;
+    public getMontant(): number {
+        return this.montant;
     }
 
-    public setChiffreAffaire(chiffreAffaire: number): void {
-        this.chiffreAffaire = chiffreAffaire;
+    public setMontant(montant: number): void {
+        this.montant = montant;
     }
+
+    public getMois(): number
+    {
+           return this.mois;
+       }
+   
+       public setMois(mois: number
+   ): void {
+           this.mois = mois;
+       }
+
+
 
 }
