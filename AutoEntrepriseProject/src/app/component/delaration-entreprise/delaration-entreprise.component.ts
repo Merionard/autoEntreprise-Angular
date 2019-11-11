@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { Entreprise } from 'src/model/Entreprise';
 import { EntrepriseService } from 'src/app/service/entreprise.service';
 import { AfficherEntrepreneurComponent } from '../afficher-entrepreneur/afficher-entrepreneur.component';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-delaration-entreprise',
@@ -11,23 +12,21 @@ import { AfficherEntrepreneurComponent } from '../afficher-entrepreneur/afficher
 })
 export class DelarationEntrepriseComponent implements OnInit {
 
-  private entreprise:Entreprise;
- @Input() private idEntrepreneur: number;
 
-  constructor(private entrepriseService:EntrepriseService,private afficherEntrepreneur:AfficherEntrepreneurComponent) { }
+  constructor(private entrepriseService:EntrepriseService,private route:ActivatedRoute,private router:Router) { }
 
   ngOnInit() {
   }
 
   onSubmit(form: NgForm){
-    this.entreprise=new Entreprise(null,null,null,null,null,null,null);
-    this.entreprise.setDateDebut(form.value['dateDebut']);
-    this.entreprise.setSiret(form.value['siret']);
-    this.entreprise.setTypeActivite(form.value['typeActivite']);
-    this.entreprise.setIsBeneficiaireArce(form.value['siArce']);
-    this.entrepriseService.saveEntrepriseToserver(this.entreprise,this.idEntrepreneur);
-    this.afficherEntrepreneur.offAfficherFormulaireCreationEntreprise();
 
+  let entreprise = new Entreprise(null,null,null,null,null,null,null);
+
+  entreprise.setDateDebut(form.value['dateDebut']);
+  entreprise.setSiret(form.value['siret']);
+  entreprise.setTypeActivite(form.value['typeActivite']);
+  entreprise.setIsBeneficiaireArce(form.value['siArce']);
+  this.entrepriseService.saveEntrepriseToserver(entreprise,Number(this.route.snapshot.paramMap.get('entrepreneurId')));
+  this.router.navigate(['afficherEntreprise']);
   }
-
 }

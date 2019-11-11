@@ -4,18 +4,11 @@
       <div class="row">
         <div class="col-md-6 col-md-offset-6">
           <p>Bienvenue {{entrepreneur.civilite.nom}}</p>
-          <button type="button" class="btn btn-primary" *ngIf="isAucuneEntreprise()" (click)="OncliCkCreationEntreprise()">Déclarer son entreprise</button>
+          <button type="button" class="btn btn-primary" *ngIf="isAucuneEntreprise()" [routerLink]="['/declarerEntreprise', entrepreneur.id]">Déclarer son entreprise</button>
           <button type="button" class="btn btn-primary" *ngIf="isEcheanceNonDeclare()" (click)="onClickDeclarationCa()">Déclarer échéance en cours</button>
         </div>
       </div>
     </div>
-  </div>
-  <div *ngIf="afficherFormulaireCreationEntreprise">
-    <app-delaration-entreprise [idEntrepreneur]="entrepreneur.getId()"></app-delaration-entreprise>
-    
-  </div>
-  <div *ngIf="!isAucuneEntreprise()">
-    <app-afficher-entreprise ></app-afficher-entreprise>
   </div>
   <div *ngIf="afficherFormulaireDeclarationCa">
     <app-chiffre-affaire></app-chiffre-affaire>

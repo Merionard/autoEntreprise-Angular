@@ -16,7 +16,8 @@ import { ChiffreAffaireComponent } from './component/chiffre-affaire/chiffre-aff
 const appRoutes: Routes = [
   { path: 'creationEntrepreneur', component: CreationEntrepreneurComponent },
   { path: 'home', component: AfficherEntrepreneurComponent },
-  { path: 'declarerEntreprise/:entrepreneurId', component: DelarationEntrepriseComponent }
+  { path: 'declarerEntreprise/:entrepreneurId', component: DelarationEntrepriseComponent },
+  { path: 'afficherEntreprise', component: AfficherEntrepriseComponent }
 /*   { path: '', component: AppareilViewComponent },
   { path: 'not-found', component: FourOhFourComponent },
   { path: 'edit', canActivate: [AuthGuard], component: EditAppareilComponent },
@@ -39,7 +40,8 @@ const appRoutes: Routes = [
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    AppRoutingModule
   ],
   providers: [
     EntrepreneurService

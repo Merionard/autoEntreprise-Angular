@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Entrepreneur } from 'src/model/Entrepreneur';
 import { EntrepreneurService } from 'src/app/service/entrepreneur.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-afficher-entrepreneur',
@@ -12,8 +13,8 @@ export class AfficherEntrepreneurComponent implements OnInit {
 
   private entrepreneur : Entrepreneur;
   private entrepreneurSubscritpion : Subscription;
-  private afficherFormulaireCreationEntreprise : boolean = false;
   private afficherFormulaireDeclarationCa : boolean = false;
+
   constructor(private entrepreneurService:EntrepreneurService) { }
 
   ngOnInit() {
@@ -33,17 +34,10 @@ export class AfficherEntrepreneurComponent implements OnInit {
     return true;
   }
 
-  OncliCkCreationEntreprise(){
-    this.afficherFormulaireCreationEntreprise=true;
-  }
-
   onClickDeclarationCa(){
     this.afficherFormulaireDeclarationCa=true;
   }
 
-  offAfficherFormulaireCreationEntreprise(){
-    this.afficherFormulaireCreationEntreprise=false;
-  }
 
 
 }

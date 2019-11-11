@@ -28,12 +28,13 @@ export class EntrepriseService {
           console.log('Enregistrement terminé !');
           this.entreprise=Entreprise.fromJson(data);
           this.emitEntrepriseSubject();
+          this.entrepreneurService.getEntrepreneurById(idEntrepreneur);
         },
         (error) => {
           console.log('Erreur ! : ' + error);
         }
       );
-      this.entrepreneurService.getEntrepreneurById(idEntrepreneur);
+      
         
       
   }

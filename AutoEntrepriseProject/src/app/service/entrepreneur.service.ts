@@ -46,6 +46,7 @@ getEntrepreneurByLogin(login:String){
 }
 
 getEntrepreneurById(id:number){
+  console.log("id entrepreneur ="+ id);
   this.httpClient
     .get('http://localhost:8080/AutoEntreprise/entrepreneurById/'+id)
     .subscribe(

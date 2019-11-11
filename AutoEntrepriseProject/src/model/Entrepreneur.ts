@@ -10,11 +10,13 @@ export class Entrepreneur {
 
 
     public static fromJson(json: Object) {
+        console.log("entreprise = " +json['entreprise']);
         return new Entrepreneur(json['id'],
             json['login'],
             json['password'],
             json['civilite'],
             json['entreprise']
+            
         );
     }
 
@@ -61,7 +63,7 @@ export class Entrepreneur {
         return this.entreprise;
     }
 
-    public setEntreprises(entreprise: Entreprise): void {
+    public setEntreprise(entreprise: Entreprise): void {
         this.entreprise = entreprise;
     }
 
